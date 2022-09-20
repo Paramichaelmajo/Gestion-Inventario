@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Nav lateral -  -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Producto">
+          <span>Ingrese producto</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/ProductoTabla">
+          <span>Buscar producto</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Proveedor">
+          <span>Proveedor</span></a>
+      </li>
+      <button class=" salir" routerLink="/Login" type="submit" value="Salir">Salir</button>
+
+
+    </ul>
+
+
+    <!-- contenedor en   form[formGroup]="productoForm" (ngSubmit)="agregar()"-->
+
+    <section class="contenedor">
+      <h1>Ingresar Producto</h1>
+      <form id="formulario" [formGroup]="productoForm" (ngSubmit)="guardarProducto()">
+        <!-- Lista de campos -->
+          <div class="fila form-group">
+            <!-- codigo -->
+            <input type="text" formControlName="prodCod" id="codigo" maxlength="30" size="40"
+              placeholder="Codigo producto" />
+            <label class="propiedad">Codigo producto</label>
+          </div>
+          <!-- nombre-->
+          <div class="fila form-group">
+            <input type="text" formControlName="prodNombre" id="prodNombre" maxlength="20" size="40"
+              placeholder="Nombre producto" />
+            <label class="propiedad">Nombre producto</label>
+          </div>
+          <div class="fila form-group">
+            <!-- precio-->
+            <input type="text" formControlName="prodPrecio" id="prodPrecio" maxlength="30" size="40"
+              placeholder="Precio producto" />
+            <label class="propiedad">Precio producto</label>
+          </div>
+          <!-- combobox Material -->
+          <div class="fila select">
+            <select id="proveedor" name="proveedor" formControlName="proveedor" class="form-group">
+              <option value="">Selecciona una opción</option>
+              <!--Probando-->
+              <!-- Se itera cada proveedor por nombre -->
+              <option [ngValue]="item" *ngFor="let item of proveedores" class="form-group">{{item.nombreProv}}</option>
+            </select>
+            <label class="propiedad">Proveedor</label>
+          </div>
+          <!-- radio -->
+          <div class="fila form-group">
+            <input formControlName="tipo" type="radio" id="metal" name="tipo" value="metal" class="form-group" />
+            <label for="metal" class="de-radio">Metal</label>
+            <input formControlName="tipo" type="radio" id="plastico" name="tipo" value="plastico" class="form-group" />
+            <label for="plastico" class="de-radio">Plastico</label>
+            <label for="tipo" class="propiedad">Tipo de material</label>
+          </div>
+          <!-- Boton-->
+        <button mat-flat-buttons class="boton-agregar" type="submit" [disabled]="productoForm.invalid">Agregar</button>
+      </form>
+    </section>
+  </div>
+</body>
+
+</html>

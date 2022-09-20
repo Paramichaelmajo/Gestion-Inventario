@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Nav lateral -  -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Producto">
+                    <span>Ingrese producto</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/ProductoTabla">
+                    <span>Buscar producto</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Proveedor">
+                    <span>Proveedor</span></a>
+            </li>
+
+            <button class="salir" routerLink="/Login" type="submit" value="Salir">Salir</button>
+
+        </ul>
+
+
+        <!-- contenedor -->
+
+        <section class="contenedor">
+
+            <!-- tabla conteenido-->
+            <div>
+                <h1>Buscar Producto</h1>
+                <label name="barraBuscar">
+                    <i class="material-icons">search</i>
+                    <input class="buscar-producto" type="text" id="buscar" onkeyup="buscar()" placeholder="Buscar producto">
+                </label>
+                <div class="table">
+                    <table class="table table-bordered" id="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Codigo </th>
+                                <th>Nombre </th>
+                                <th>Precio</th>
+                                <th>Proveedor</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let item of productos">
+                                <td>{{item.prodCod}}</td>
+                                <td>{{item.prodPrecio}}</td>
+                                <td>{{item.prodNombre}}</td>
+                                <td>{{item.idProv.nombreProv}}</td>
+                                <td>{{item.tipoId.descripcion}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button mat-flat-buttons class="boton-guardar-produ" type="submit">Guardar</button>
+            <button mat-flat-buttons class="boton-editar-produ" type="submit">Editar</button>
+            <button mat-flat-buttons class="boton-eliminar-produ" type="submit">Eliminar</button>
+        </section>
+    </div>
+</body>
+
+</html>

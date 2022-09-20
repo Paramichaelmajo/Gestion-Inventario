@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Nav lateral -  -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Producto">
+          <span>Ingrese producto</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/ProductoTabla">
+          <span>Buscar producto</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Proveedor">
+          <span>Proveedor</span></a>
+      </li>
+
+
+      <button class=" salir" routerLink="/Login" type="submit" value="Salir">Salir</button>
+
+    </ul>
+
+    <!-- contenedor -->
+
+    <section class="contenedor">
+
+      <div class="seccionBuscar">
+        <h1>Ingrese proveedor</h1>
+        <i class="material-icons">search</i>
+        <button mat-flat-button class="boton-buscar-proveedor" type="submit" routerLink="/ProveedorTabla">Buscar
+          proveedor</button>
+      </div>
+
+      <form [formGroup]="proveedorForm" (ngSubmit)="guardar()">
+        <div class="form-group grupo">
+          <label>Nombre </label>
+          <input type="text" formControlName="nombreProv" id="nombreProv" maxlength="30" size="40"
+            placeholder="Nombre"/>
+          <label>Telefono</label>
+          <input type="text" formControlName="telefProv" id="telefProv" maxlength="20" size="40"
+            placeholder="Telefono"/>
+        </div>
+        <div class="form-group grupo">
+          <label>Ciudad</label>
+          <input type="text" formControlName="ciudadProv" id="ciudadProv" maxlength="30" size="40"
+            placeholder="Ciudad"/>
+          <label>Direccion </label>
+          <input type="text" formControlName="dirProv" id="dirProv" maxlength="30" size="40" placeholder="Direccion" />
+        </div>
+        <div class="form-group grupo">
+          <label>Correo</label>
+          <input id="correoProv" formControlName="correoProv" type="email" maxlength="30" size="40"
+            placeholder="Correo@dominio.algo"/>
+        </div>
+        <!-- Boton-->
+        <button mat-flat-buttons class="boton-agregar-proveedor" type="submit"
+          [disabled]="proveedorForm.invalid">Agregar</button>
+      </form>
+    </section>
+  </div>
+</body>
+
+</html>

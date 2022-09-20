@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Proyecto</title>
+<link rel="stylesheet" type="text/css" href="/proyecto-frontend/src/styles.css" />
+</head>
+<body>
+
+
+<section class="login-form-section">
+
+   
+    <form   class="login-form " action="POST" action="#">  <!-- [(ngModel)]="usuario.nombre_usu" [(ngModel)]="usuario.contra_usu" ngSubmit es una sentencia que hara que en consola se vea que este registrando con {asd} -->
+
+        <label class="login-label"><i class="material-icons">person</i>
+            <input formControlName="name"  class="texto"    type="text" name="Nombre" placeholder="Nombre" required="" id="nombre"> 
+        </label>
+
+        <label class="login-label"><i class="material-icons">key</i>    
+            <input  formControlName="password" class="texto"    type="password" name="Contraseña" placeholder="Contraseña" required="" id="contrasena">
+        </label>
+
+        <button type="button"    routerLink="/Producto" name="btnLogin" value="Ingresar">Ingresar</button>
+     
+
+     
+    </form>
+
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Nav lateral -  -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Producto">
+                    <span>Ingrese producto</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/ProductoTabla">
+                    <span>Buscar producto</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Proveedor">
+                    <span>Proveedor</span></a>
+            </li>
+
+
+            <button class=" salir" routerLink="/Login" type="submit" value="Salir">Salir</button>
+        </ul>
+
+
+        <!-- contenedor -->
+
+        <section class="contenedor">
+
+            <!-- tabla conteenido-->
+            <div>
+                <h2>Tabla Proveedores</h2>
+                <input class="" type="text" id="buscar" placeholder="Buscar producto">
+                <div class="table">
+                    <table class="table table-bordered" id="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Nombre </th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Direccion</th>
+                                <th>Ciudad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of proveedores">
+                                <td>{{item.nombreProv}}</td>
+                                <td>{{item.telefProv}}</td>
+                                <td>{{item.correoProv}}</td>
+                                <td>{{item.dirProv}}</td>
+                                <td>{{item.ciudadProv}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Boton-->
+
+            <button class="boton-guardar-prove " type="submit">Guarda</button>
+            <button class="boton-editar-prove " type="submit">Editar</button>
+            <button class="boton-eliminar-prove " type="submit">Eliminar</button>
+
+        </section>
+    </div>
+
+
+</body>
+
+</html>
